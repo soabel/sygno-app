@@ -1,0 +1,20 @@
+<header>
+    <ul class="nav justify-content-center">
+        <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/login']">Login</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/articulos/list']">Artículos</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" (click)="logout()">Logout</a>
+        </li>
+
+    </ul>
+
+</header>
+
+<h1>Bienvenido a Sygno App</h1>
+
+<router-outlet></router-outlet>
