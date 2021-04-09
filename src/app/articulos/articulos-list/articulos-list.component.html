@@ -1,26 +1,44 @@
-<p>articulos-list works!</p>
+<h2>Lista de artículos</h2>
 
-
-{{ model | json }}
+<div>
+    <input type="button" class="btn btn-primary" value="Nuevo" (click)="nuevo()">
+</div>
 
 <table class="table">
     <thead>
         <tr>
             <th>ID</th>
-            <th>NAME</th>
-            <th>ESTADO</th>
-            <th>PRECIO</th>
+            <th>CODIGO</th>
+            <th>DESCRIPCION</th>
+            <th>STOCK</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let item of  model">
             <td scope="row"> {{item.id}} </td>
-            <td>{{item.nombre}}</td>
-            <td [ngClass]="{'articulo-active': item.status=='active'}" >{{item.status}}</td>
+            <td>{{item.codigo}}</td>
+            <td>{{item.descripcion}}</td>
             <td>
-                <span *ngIf="item.status=='active'">{{item.precio}}</span>
+                {{item.stock}}
             </td>
 
         </tr>
     </tbody>
 </table>
+
+<div class="row">
+    <div class="col-md-6 ">
+        <button type="button" class="btn btn-primary" (click)="previous()"
+            [disabled]="modelBase.previousPage == null">Anterior</button>
+    </div>
+    <div class="col-md-6">
+
+        <button type="button" class="btn btn-primary" (click)="next()"
+            [disabled]="modelBase.nextPage == null">Siguiente</button>
+
+    </div>
+
+
+
+
+</div>

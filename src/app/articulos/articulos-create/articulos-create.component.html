@@ -1,1 +1,26 @@
-<p>articulos-create works!</p>
+<div class="container-fluid">
+    <div class="col-md-8">
+
+        <form (ngSubmit)="onSubmit()" #form="ngForm">
+            <div class="form-group">
+                <label for="">Codigo</label>
+                <input type="text" name="codigo" class="form-control" placeholder="" [(ngModel)]="model.codigo">
+            </div>
+            <div class="form-group">
+                <label for="">Descripcion</label>
+                <input type="text" name="descripcion" class="form-control" placeholder="" [(ngModel)]="model.descripcion">
+            </div>
+
+            <div class="form-group">
+                <label for="">Stock</label>
+                <input type="number" name="stock" class="form-control" placeholder="" [(ngModel)]="model.stock">
+            </div>
+
+            <button class="btn btn-primary mt-1" type="submit" [disabled]="!form.form.valid">
+                Guardar
+            </button>
+
+        </form>
+    </div>
+
+</div>

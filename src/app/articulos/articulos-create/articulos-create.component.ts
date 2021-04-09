@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Articulo } from 'src/app/models/articulo.model';
+import { ArticulosService } from 'src/app/services/articulos.service';
 
 @Component({
   selector: 'app-articulos-create',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ArticulosCreateComponent implements OnInit {
 
-  constructor() { }
+  model: Articulo = new Articulo();
+
+  constructor(private articulosService: ArticulosService, private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  onSubmit(): void {
+    this.articulosService.create(this.model).subscribe(res => {
+      console.log(res);
+      this.router.navigate(['articulos/list']);
+    })
   }
 
 }

@@ -5,8 +5,8 @@ import { ArticulosListComponent } from './articulos-list/articulos-list.componen
 import { ArticulosCreateComponent } from './articulos-create/articulos-create.component';
 import { RouterModule } from '@angular/router';
 import { ArticulosEditComponent } from './articulos-edit/articulos-edit.component';
-
-
+import { ArticulosService } from '../services/articulos.service';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,7 +17,9 @@ import { ArticulosEditComponent } from './articulos-edit/articulos-edit.componen
   ],
   imports: [
     CommonModule,
-    RouterModule
-  ]
+    RouterModule,
+    FormsModule
+  ],
+  // providers:[ArticulosService]
 })
 export class ArticulosModule { }

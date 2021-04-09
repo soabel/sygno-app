@@ -1,21 +1,32 @@
+import { HttpClient } from '@angular/common/http';
+import { CompileShallowModuleMetadata } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
+import { environment } from 'src/environments/environment';
+import { Articulo } from '../models/articulo.model';
 
 @Injectable({
   providedIn: 'root'
 })
+
+// @Injectable()
 export class ArticulosService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  findAll(): Observable<any> {
+  find(url: string): Observable<any> {
+    return this.http.
+      get<any>(url);
+  }
 
-    var lista = [
-      { id: 1, nombre: 'Sofa', status: 'active', precio: 12 },
-      { id: 2, nombre: 'Closet', status: 'inactive', precio: 13 }
-    ];
+  findAll(pageSize: number = 5): Observable<any> {
+    return this.http.
+      get<any>(`${environment.apiSygnoUrl}/api/Articulos?PageSize=${pageSize}`);
+  }
 
-    return of(lista);
+  create(data: Articulo): Observable<Articulo> {
+    return this.http.
+      post<Articulo>(`${environment.apiSygnoUrl}/api/Articulos`, data);
 
   }
 

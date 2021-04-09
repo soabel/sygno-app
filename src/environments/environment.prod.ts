@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  apiSygnoUrl: 'https://apisygnoprod001.azurewebsites.net'
 };
