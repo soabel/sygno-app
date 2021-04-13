@@ -9,6 +9,7 @@ import { ArticulosModule } from './articulos/articulos.module';
 import { AuthModule } from './auth/auth.module';
 import { LayoutModule } from './layout/layout.module';
 import { PageErrorsModule } from './page-errors/page-errors.module';
+import { ComprobantesModule } from './comprobantes/comprobantes.module';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { PageErrorsModule } from './page-errors/page-errors.module';
 
     AuthModule,
     ArticulosModule,
+    ComprobantesModule,
     PageErrorsModule,
     LayoutModule
   ],

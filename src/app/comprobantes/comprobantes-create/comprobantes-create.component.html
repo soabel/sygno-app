@@ -1,0 +1,85 @@
+<div class="container">
+    <p>comprobantes-create works!</p>
+
+
+    <form (ngSubmit)="onSubmit()" #form="ngForm">
+
+        <div class="form-group">
+            <label for="">Fecha Emisión</label>
+            <input type="text" class="form-control" name="fechaEmision" [(ngModel)]="model.fechaEmision">
+        </div>
+
+        <div class="form-group">
+            <label for="">Cliente</label>
+            <select class="form-control" name="idCliente" [(ngModel)]="model.idCliente">
+                <option *ngFor="let clienteItem of listaClientes" [ngValue]="clienteItem.id"> {{clienteItem.nombre}}
+                </option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="">Tipo Comprobante</label>
+            <select class="form-control" name="idTipoComprobante" [(ngModel)]="model.idTipoComprobante">
+                <option *ngFor="let item of listaTipoComprobante" [ngValue]="item.id"> {{item.descripcion}} </option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="">Moneda</label>
+            <select class="form-control" name="idTipoMoneda" [(ngModel)]="model.idTipoMoneda">
+                <option *ngFor="let item of listaTipoMoneda" [ngValue]="item.id"> {{item.descripcion}} </option>
+            </select>
+        </div>
+
+        <button type="button" class="btn btn-primary" (click)="agregarArticulo()">Agregar Artículo</button>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">ITEM</th>
+                    <th>ARTICULO</th>
+                    <th>CANTIDAD</th>
+                    <th>PRECIO</th>
+                    <th>SUBTOTAL</th>
+                    <th>CONTROLES</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let itemDetalle of model.detalles; let i=index;">
+                    <td>
+                        {{itemDetalle.item}}
+                    </td>
+                    <td>
+                        <select class="form-control" name="idArticulo-{{i}}" [(ngModel)]="itemDetalle.idArticulo" (change)="actualizarDetalle(itemDetalle)">
+                            <option *ngFor="let item of listaArticulos" [ngValue]="item.id"> {{item.descripcion}}
+                            </option>
+                        </select>
+                    </td>
+                    <td>
+                        <input type="number" class="form-control" name="cantidad-{{i}}" [(ngModel)]="itemDetalle.cantidad" (change)="calcularSubtotal(itemDetalle)">
+                    </td>
+                    <td>
+                        <input type="number" class="form-control" name="precio-{{i}}" [(ngModel)]="itemDetalle.precio" (change)="calcularSubtotal(itemDetalle)">
+                    </td>
+                    <td>{{itemDetalle.subtotal}}</td>
+                    <td>
+                        <button type="button" class="btn btn-secondary" (click)="eliminarDetalle(i)">Eliminar Detalle</button>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+
+
+
+
+
+
+
+    </form>
+
+
+
+</div>
+
+{{model | json}}
