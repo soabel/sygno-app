@@ -1,0 +1,31 @@
+.welcome-container {
+    box-sizing: border-box;
+    &-card{
+        min-height: 60vh;
+    }
+    p {
+        font-weight: 500;
+        font-family: 'Poppins', sans-serif;
+        color: #b1b1b1;
+       
+    }
+}
+@media (max-width: 768px){
+    .welcome-container  {
+        padding: 0px !important;
+        p {
+            font-size: 20px;
+        }
+    }
+    
+}
+
+@media (max-width: 480px){
+    .welcome-container  {
+        p {
+            font-size: 14px;
+        }
+    }
+    
+}
+

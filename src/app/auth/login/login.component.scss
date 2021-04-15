@@ -1,0 +1,40 @@
+:host {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+.card-title {
+  color: #0060a7;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+.logo-img {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  z-index: 5;
+} 
+.card-shadow {
+  box-shadow: 1px 0px 16px -2px rgb(193 193 193);
+-webkit-box-shadow: 1px 0px 16px -2px rgb(193 193 193);
+-moz-box-shadow: 1px 0px 16px -2px rgb(193 193 193);
+}
+
+
+
+@media (max-width: 992px){
+  .logo-img {
+    top: 3%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+
+@media (max-width: 576px){
+  .container-login{
+    width: 90% !important;
+  }
+}

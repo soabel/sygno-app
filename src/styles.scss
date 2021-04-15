@@ -1,1 +1,90 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/scss/bootstrap";
+
+// @import "~@ng-select/ng-select/themes/default.theme.css";
+
+html, body { height: 100%; }
+body { margin: 0; font-family: 'Montserrat', "Helvetica Neue", sans-serif; background-color: #f2f2f2;}
+
+.br-35 {
+    border-radius: 35px !important;
+}
+.bg-img {
+    position: absolute !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    min-height: 100vh;
+    width: 100%;
+}
+.card-title {
+    color: #005ca6;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+  }
+.h100 {
+    height: 100%;
+}
+.btn-primary {
+    background-color: #005ca6 !important;
+    border-color: #005ca6 !important;
+}
+.full-width {
+    width: 100% !important;
+}
+.g-table-header {
+    background-color: #005ca6;
+    &:hover {
+        background-color: rgba(0, 92, 166, 0.78);
+    }
+    th {
+        color: #fff !important;
+        font-weight: 500 !important;
+    }
+}
+.report-container {
+    &-label + input {
+        background-color: rgba(177, 177, 177, 0.3);
+    }
+}
+
+.theme{
+    &-back_icon{
+        cursor: pointer;
+        color: #005ca6;
+
+        span, i {
+            display: inline-block;
+            vertical-align: middle;
+        }
+        span {
+            font-size: 12px;
+            margin-left: 5px;
+        }
+        i {
+            font-size: 20px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+    }
+    &-form_select{
+        position: relative;
+        select{
+            background-color: rgba(177, 177, 177, 0.3);
+            -webkit-appearance: none;
+             -moz-appearance: none;
+             appearance: none; 
+        }
+        i{
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 5px;
+            width: 30px;
+            display: block;
+            color: #005ca6;
+            pointer-events: none;
+        }
+    }
+}

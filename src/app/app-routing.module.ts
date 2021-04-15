@@ -9,6 +9,8 @@ import { ComprobantesCreateComponent } from './comprobantes/comprobantes-create/
 import { ComprobantesListComponent } from './comprobantes/comprobantes-list/comprobantes-list.component';
 import { ComprobantesComponent } from './comprobantes/comprobantes.component';
 import { AuthGuard } from './core/auth.guard';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashboardModule } from './dashboard/dashboard.module';
 import { LayoutComponent } from './layout/layout.component';
 import { NotFoundComponent } from './page-errors/not-found/not-found.component';
 
@@ -19,10 +21,11 @@ const routes: Routes = [
     path: '', component: LayoutComponent,
     canActivate: [AuthGuard],
     children: [
+      { path: '', component: DashboardComponent },
       {
         path: 'articulos', component: ArticulosComponent,
         children: [
-          { path: 'list', component: ArticulosListComponent },
+          { path: '', component: ArticulosListComponent },
           { path: 'create', component: ArticulosCreateComponent },
           { path: 'edit/:id', component: ArticulosEditComponent }
         ]
@@ -30,13 +33,13 @@ const routes: Routes = [
       {
         path: 'comprobantes', component: ComprobantesComponent,
         children: [
-          { path: 'list', component: ComprobantesListComponent },
+          { path: '', component: ComprobantesListComponent },
           { path: 'create', component: ComprobantesCreateComponent }
         ]
       },
     ]
   },
-  
+
   { path: '**', component: NotFoundComponent }
 ];
 

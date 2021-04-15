@@ -1,26 +1,38 @@
-<header>
-    <ul class="nav justify-content-center">
-        <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/login']">Login</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/articulos/list']">Artículos</a>
-        </li>
+<header class="px-5 shadown mb-5 base-header" >
+    <nav class="navbar navbar-expand-md navbar-header" aria-label="">
 
-        <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/comprobantes/list']">Comprobantes</a>
-        </li>
+        <a class="navbar-brand" [routerLink]="['/dashboard']" routerLinkActive="active">
+            <img width="150" height="50" src="https://logoipsum.com/logo/logo-14.svg" />
+        </a>
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="navbar-collapse collapse ml-2" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
 
-        <li class="nav-item">
-            <a class="nav-link" (click)="logout()">Logout</a>
-        </li>
-
-    </ul>
-
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/articulos']" routerLinkActive="active">Artículos</a>
+                </li>
+        
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/comprobantes']" routerLinkActive="active">Comprobantes</a>
+                </li>
+        
+            </ul>
+            <form class="form-inline mt-2 mt-md-0">
+                <span class="mr-1 base-header-username"> {{user}} </span>
+                <i class="base-header-icon mx-3 far fa-user"></i>
+                <i (click)="logout()" class="base-header-icon fas fa-power-off"></i>
+            </form>
+        </div>
+    </nav>
 </header>
 
-<h1>¡ Hola {{user}} !</h1>
-<h1>Bienvenido a Sygno App</h1>
+<main id="main" class="base-body pb-5" role="main">
+    <div class="container">
 
+        <router-outlet></router-outlet>
+    </div>
+</main> 
 
-<router-outlet></router-outlet>

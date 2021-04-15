@@ -1,0 +1,21 @@
+.navbar-header {
+    a,
+    span,
+    i {
+        color: #fff;
+    }
+}
+.base-header {
+    cursor: pointer;
+    background-color: #005ca6 !important;
+    &-link {
+        font-weight: 500;
+    }
+    &-username{
+        font-weight: 500;
+        font-size: 14px;
+    }
+    &-icon{
+        font-size: 18px;
+    }
+}

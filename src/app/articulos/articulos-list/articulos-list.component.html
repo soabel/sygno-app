@@ -1,44 +1,55 @@
-<h2>Lista de artículos</h2>
-
-<div>
-    <input type="button" class="btn btn-primary" value="Nuevo" (click)="nuevo()">
-</div>
-
-<table class="table">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>CODIGO</th>
-            <th>DESCRIPCION</th>
-            <th>STOCK</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let item of  model">
-            <td scope="row"> {{item.id}} </td>
-            <td>{{item.codigo}}</td>
-            <td>{{item.descripcion}}</td>
-            <td>
-                {{item.stock}}
-            </td>
-
-        </tr>
-    </tbody>
-</table>
-
-<div class="row">
-    <div class="col-md-6 ">
-        <button type="button" class="btn btn-primary" (click)="previous()"
-            [disabled]="modelBase.previousPage == null">Anterior</button>
+<div class="text-left report-container">
+    <div class="my-3">
+        <a class="theme-back_icon" [routerLink]="['..']">
+            <i class=" fas fa-chevron-circle-left"></i>
+            <span>Back</span>
+        </a>
     </div>
-    <div class="col-md-6">
+    <div class="card shadow p-5 report-container-card_body">
 
-        <button type="button" class="btn btn-primary" (click)="next()"
-            [disabled]="modelBase.nextPage == null">Siguiente</button>
+        <div class="d-flex justify-content-between">
+            <div>
+                <h4 class="card-title report-container-card_title">Artículos</h4>
+            </div>
+            <div class="float-right">
+                <button type="button" class="btn btn-primary btn-icon-text" (click)="nuevo()">
+                    <!-- <i class="fas fa-user-plus mr-1"></i> -->
+                    Nuevo
+                </button>
+            </div>
 
+        </div>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>CODIGO</th>
+                    <th>DESCRIPCION</th>
+                    <th>STOCK</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of  model">
+                    <td scope="row"> {{item.id}} </td>
+                    <td>{{item.codigo}}</td>
+                    <td>{{item.descripcion}}</td>
+                    <td>
+                        {{item.stock}}
+                    </td>
+
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="row d-flex justify-content-between">
+
+            <button type="button" class="btn btn-outline-primary mr-1" (click)="previous()"
+                [disabled]="modelBase.previousPage == null">Anterior</button>
+
+            <button type="button" class="btn btn-outline-primary" (click)="next()"
+                [disabled]="modelBase.nextPage == null">Siguiente</button>
+
+        </div>
     </div>
-
-
-
-
 </div>

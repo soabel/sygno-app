@@ -1,9 +1,9 @@
-<div class="container">
+<div class="d-flex w-100 container-login p-relative justify-content-center">
 
-    <div class="card ">
+    <div class="card card-shadow br-35 pt-5 px-xs-0 px-md-5 col-xs-8 col-sm-8 col-md-6 col-lg-5 rounded">
         <img class="card-img-top" src="holder.js/100px180/" alt="">
         <div class="card-body">
-            <h4 class="card-title">Login</h4>
+            <h2 class="card-title text-center">Login</h2>
             <!-- <p class="card-text">Text</p> -->
 
             <form (ngSubmit)="login()" [formGroup]="form">
@@ -39,13 +39,11 @@
 
                 </div>
 
-                <button type="reset" class="btn btn-secondary mr-1">Limpiar</button>
-                <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Ingresar</button>
-
+                <div class="d-flex justify-content-center">
+                    <button type="reset" class="btn btn-secondary mr-1">Limpiar</button>
+                    <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Ingresar</button>
+                </div>
             </form>
-
-            {{form.get('email').errors | json}}
-
         </div>
     </div>
 
