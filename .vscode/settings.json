@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/0abe1293-7eef-4753-99bd-677b9d10bfc2/resourceGroups/rgSygno/providers/Microsoft.Web/sites/sygnofront",
+    "appService.deploySubpath": "dist/sygno-app"
+}
