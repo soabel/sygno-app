@@ -8,6 +8,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { ComprobantesCreateComponent } from './comprobantes/comprobantes-create/comprobantes-create.component';
 import { ComprobantesListComponent } from './comprobantes/comprobantes-list/comprobantes-list.component';
 import { ComprobantesComponent } from './comprobantes/comprobantes.component';
+import { AuthGuard } from './core/auth.guard';
 import { LayoutComponent } from './layout/layout.component';
 import { NotFoundComponent } from './page-errors/not-found/not-found.component';
 
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   {
     path: '', component: LayoutComponent,
+    canActivate: [AuthGuard],
     children: [
       {
         path: 'articulos', component: ArticulosComponent,

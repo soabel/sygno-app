@@ -1,5 +1,52 @@
-
 <div class="container">
-    <button type="button" class="btn btn-primary" (click)="login()" >Login</button>
+
+    <div class="card ">
+        <img class="card-img-top" src="holder.js/100px180/" alt="">
+        <div class="card-body">
+            <h4 class="card-title">Login</h4>
+            <!-- <p class="card-text">Text</p> -->
+
+            <form (ngSubmit)="login()" [formGroup]="form">
+                <div class="form-group">
+                    <label for="">Email</label>
+                    <input type="text" name="email" class="form-control" formControlName="email"
+                        placeholder="Ingrese su email">
+
+                    <div class="alert alert-danger" *ngIf="form.get('email').invalid && form.get('email').touched ">
+                        <div *ngIf="form.get('email').errors?.required">
+                            El email es obligatorio.
+                        </div>
+                        <div *ngIf="form.get('email').errors?.email">
+                            Email no válido.
+                        </div>
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <label for="">Password</label>
+                    <input type="password" name="password" class="form-control" formControlName="password"
+                        placeholder="">
+
+                    <div class="alert alert-danger"
+                        *ngIf="form.get('password').invalid && form.get('password').touched ">
+                        <div *ngIf="form.get('password').errors?.required">
+                            El password es obligatorio.
+                        </div>
+                        <div *ngIf="form.get('password').errors?.minlength">
+                            El password debe tener al menos 6 caracteres
+                        </div>
+                    </div>
+
+                </div>
+
+                <button type="reset" class="btn btn-secondary mr-1">Limpiar</button>
+                <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Ingresar</button>
+
+            </form>
+
+            {{form.get('email').errors | json}}
+
+        </div>
+    </div>
 
 </div>
