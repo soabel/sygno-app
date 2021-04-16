@@ -1,7 +1,8 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +13,7 @@ import { PageErrorsModule } from './page-errors/page-errors.module';
 import { ComprobantesModule } from './comprobantes/comprobantes.module';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { AuthInterceptor } from './core/auth.interceptor';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 
 @NgModule({
@@ -20,6 +22,7 @@ import { AuthInterceptor } from './core/auth.interceptor';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
@@ -29,8 +32,11 @@ import { AuthInterceptor } from './core/auth.interceptor';
     ComprobantesModule,
     PageErrorsModule,
     LayoutModule,
-    DashboardModule
+    DashboardModule,
+
+    NgxSpinnerModule
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   exports: [],
   providers: [
     {

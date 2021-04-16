@@ -27,6 +27,8 @@
                     <th>CODIGO</th>
                     <th>DESCRIPCION</th>
                     <th>STOCK</th>
+                    <th>PRECIO</th>
+                    <th>FECHA</th>
                 </tr>
             </thead>
             <tbody>
@@ -36,6 +38,12 @@
                     <td>{{item.descripcion}}</td>
                     <td>
                         {{item.stock}}
+                    </td>
+                    <td>
+                        {{item.stock | number: '1.2-2'}}
+                    </td>
+                    <td>
+                        {{today | date: 'dd/MM/yyyy'}}
                     </td>
 
                 </tr>

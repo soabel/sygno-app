@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { Articulo } from 'src/app/models/articulo.model';
 import { ArticulosService } from 'src/app/services/articulos.service';
 
@@ -15,13 +16,17 @@ export class ArticulosListComponent implements OnInit {
   modelBase: any = {};
   model: Articulo[];
 
-  constructor(private articulosService: ArticulosService, private router: Router) { }
+  today = new Date();
+
+  constructor(private articulosService: ArticulosService, private router: Router, private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
+    this.spinner.show();
     this.articulosService.findAll()
       .subscribe(res => {
         this.modelBase = res;
         this.model = res.data;
+        this.spinner.hide();
       });
   }
 
@@ -30,20 +35,20 @@ export class ArticulosListComponent implements OnInit {
   }
 
   previous(): void {
-
-    this.articulosService.find(this.modelBase.previousPage)
-      .subscribe(res => {
-        this.modelBase = res;
-        this.model = res.data;
-      });
+    this.find(this.modelBase.previousPage);
   }
 
   next(): void {
+    this.find(this.modelBase.nextPage)
+  }
 
-    this.articulosService.find(this.modelBase.nextPage)
+  private find(url: string) {
+    this.spinner.show();
+    this.articulosService.find(url)
       .subscribe(res => {
         this.modelBase = res;
         this.model = res.data;
+        this.spinner.hide();
       });
   }
 
