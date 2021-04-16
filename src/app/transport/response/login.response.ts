@@ -1,4 +1,6 @@
 export class LoginResponse {
-    accesToken: string;
+    accessToken: string;
+    refreshToken: string;
+    expiration: number;
     userData: any;
 }

@@ -40,6 +40,8 @@ export class LoginComponent implements OnInit {
 
     this.authService.login(request).subscribe(res => {
 
+      res.userData = { email: request.email };
+
       sessionStorage.setItem('auth', JSON.stringify(res));
 
       this.router.navigate(['']);

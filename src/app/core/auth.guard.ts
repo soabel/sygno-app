@@ -18,7 +18,7 @@ export class AuthGuard implements CanActivate {
 
     const auth = JSON.parse(sessionStorage.getItem('auth')) as LoginResponse;
 
-    if (auth && auth.accesToken != null) {
+    if (auth && auth.accessToken != null) {
       return true;
     }
     else {
