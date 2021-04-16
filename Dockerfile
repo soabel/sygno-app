@@ -1,10 +1,6 @@
 
 FROM node:14.15.1-alpine3.12 as builder
 
-ARG ENVIRONMENT=prod
-
-RUN echo environment: $ENVIRONMENT
-
 RUN apk update && apk add --no-cache \
     git \
     ca-certificates \
@@ -16,7 +12,7 @@ COPY . ./
 
 RUN npm install
 
-RUN npm run build:$ENVIRONMENT
+RUN npm run build --prod
 
 FROM nginx:1.15-alpine
 
@@ -28,7 +24,7 @@ COPY nginx.conf /etc/nginx/nginx.conf
 COPY nginx-security-headers.conf /etc/nginx/security-headers.conf
 COPY nginx-mime.types /etc/nginx/mime.types
 
-COPY --from=builder /home/node/app/dist/sygnoapp /usr/share/nginx/html
+COPY --from=builder /home/node/app/dist/sygno-app /usr/share/nginx/html
 
 EXPOSE 80
 
