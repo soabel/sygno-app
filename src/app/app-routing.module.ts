@@ -5,12 +5,13 @@ import { ArticulosEditComponent } from './articulos/articulos-edit/articulos-edi
 import { ArticulosListComponent } from './articulos/articulos-list/articulos-list.component';
 import { ArticulosComponent } from './articulos/articulos.component';
 import { LoginComponent } from './auth/login/login.component';
+
 import { ComprobantesCreateComponent } from './comprobantes/comprobantes-create/comprobantes-create.component';
 import { ComprobantesListComponent } from './comprobantes/comprobantes-list/comprobantes-list.component';
 import { ComprobantesComponent } from './comprobantes/comprobantes.component';
 import { AuthGuard } from './core/auth.guard';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { DashboardModule } from './dashboard/dashboard.module';
+
 import { LayoutComponent } from './layout/layout.component';
 import { NotFoundComponent } from './page-errors/not-found/not-found.component';
 
@@ -37,6 +38,10 @@ const routes: Routes = [
           { path: 'create', component: ComprobantesCreateComponent }
         ]
       },
+      {
+        path:'clientes',
+        loadChildren: () => import('./clients/clients.module').then(m=> m.ClientsModule)
+      }
     ]
   },
 

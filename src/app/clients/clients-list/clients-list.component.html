@@ -1,0 +1,55 @@
+<div class="text-left report-container">
+    <div class="my-3">
+        <a class="theme-back_icon" [routerLink]="['..']">
+            <i class=" fas fa-chevron-circle-left"></i>
+            <span>Back</span>
+        </a>
+    </div>
+    <div class="card shadow p-5 report-container-card_body">
+
+        <div class="d-flex justify-content-between">
+            <div>
+                <h4 class="card-title report-container-card_title">Clientes</h4>
+            </div>
+            <div class="float-right">
+                <button type="button" class="btn btn-primary btn-icon-text" (click)="nuevo()">
+                    <!-- <i class="fas fa-user-plus mr-1"></i> -->
+                    Nuevo
+                </button>
+            </div>
+
+        </div>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>DNI</th>
+                    <th>NOMBRES</th>
+                    <th>APELLIDOS</th>
+                    <th>CREDITO</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of  model">
+                    <td scope="row"> {{item.numeroDocumento}} </td>
+                    <td>{{item.nombres}}</td>
+                    <td>{{item.apellidoPaterno + ' ' + item.apellidoMaterno}}</td>
+                    <td>
+                        {{item.credito}}
+                    </td>
+
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- <div class="row d-flex justify-content-between">
+
+            <button type="button" class="btn btn-outline-primary mr-1" (click)="previous()"
+                [disabled]="modelBase.previousPage == null">Anterior</button>
+
+            <button type="button" class="btn btn-outline-primary" (click)="next()"
+                [disabled]="modelBase.nextPage == null">Siguiente</button>
+
+        </div> -->
+    </div>
+</div>

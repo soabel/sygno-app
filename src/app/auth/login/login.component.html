@@ -40,7 +40,19 @@
 
                 <div class="d-flex justify-content-center">
                     <button type="reset" class="btn btn-secondary mr-1">Limpiar</button>
-                    <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Ingresar</button>
+                    <button type="submit" class="btn btn-primary" [disabled]="!form.valid || loading">Ingresar
+
+                    </button>
+                </div>
+
+                <div *ngIf="loading" class="d-flex justify-content-center">
+                    <div class="spinner-border text-primary mt-2 " role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>
+
+                <div *ngIf="error != null" class="alert alert-danger mt-2" role="alert">
+                    {{error}}
                 </div>
             </form>
         </div>

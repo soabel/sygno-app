@@ -11,7 +11,9 @@ import { LoginRequest } from 'src/app/transport/request/login.request';
 })
 export class LoginComponent implements OnInit {
 
+  loading = false;
   form: FormGroup;
+  error: null;
   constructor(private router: Router, private formBuilder: FormBuilder, private authService: AuthService) { }
 
 
@@ -36,21 +38,23 @@ export class LoginComponent implements OnInit {
 
   login(): void {
 
+    this.error = null;
+    this.loading=true;
+
     const request = this.form.value as LoginRequest;
 
     this.authService.login(request).subscribe(res => {
-
       res.userData = { email: request.email };
-
       sessionStorage.setItem('auth', JSON.stringify(res));
-
       this.router.navigate(['']);
     },
       err => {
         console.log(err);
+        this.error = err.error;
+        this.loading=false;
       },
       () => {
-
+        this.loading=false;
       })
 
   }
